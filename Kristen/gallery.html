@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Kristen Fitzgerald</title>
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/style2.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+   <script src="js/app.js" type="text/javascript"></script>
+   <!--Bootstrap-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!--Latest stable release of jQuery Core Library-->
+<script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+<!--Bootstrap JS-->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+</script>
+</head>
+<body>
+   <a href="index.html" class="a">
+   <div class="hero">
+      <div class="hero-text">
+         <h1><strong> Kristen Fitzgerald </strong></h1></div>
+         <div class="secondHeader"><h2>actor &#183; director &#183; singer </h2>
+         </div>
+      </div>
+       </a>
+      <div class="nav">
+          <nav>
+            <ul>
+              <li><a href="resume.html"> Resume </a></li>
+              <li><a href="directing.html"> Directing </a></li>
+              <li><a href="gallery.html"> Gallery </a></li>
+              <li><a href="upcoming.html"> Upcoming </a></li>
+            </ul>
+          </nav>
+      </div>
+      <!-- Images used to open the lightbox -->
+<div class="row">
+  <div class="column">
+    <img src="css/img/head-one.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow" alt="img1">
+  </div>
+  <div class="column">
+    <img src="css/img/head-two.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow" alt="img1">
+  </div>
+  <div class="column">
+    <img src="css/img/head-three.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow" alt="img1">
+  </div>
+  <div class="column">
+    <img src="css/img/head-four.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow" alt="img1">
+  </div>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+      <img src="css/img/head-one.jpg" style="width:100%" alt="img1">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+      <img src="css/img/head-two.jpg" style="width:100%" alt="img1">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+      <img src="css/img/head-three.jpg" style="width:100%" alt="img1">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+      <img src="css/img/head-four.jpg" style="width:100%" alt="img1">
+    </div>
+
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <!-- Caption text -->
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+    <!-- Thumbnail image controls -->
+    <div class="column">
+      <img class="demo" src="img1.jpg" onclick="currentSlide(1)" alt="Nature">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img2.jpg" onclick="currentSlide(2)" alt="Snow">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img3.jpg" onclick="currentSlide(3)" alt="Mountains">
+    </div>
+
+    <div class="column">
+      <img class="demo" src="img4.jpg" onclick="currentSlide(4)" alt="Lights">
+    </div>
+  </div>
+</div>
+<script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
